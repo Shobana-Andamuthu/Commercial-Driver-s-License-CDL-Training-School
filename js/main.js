@@ -56,12 +56,10 @@ function updateThemeButtonIcons(theme) {
   toggleBtns.forEach(btn => {
     btn.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
     btn.title = theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
-    const isDrawer = btn.closest('.drawer-preferences') !== null || btn.closest('.drawer-pref-group') !== null;
-    const label = isDrawer ? `<span>${theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>` : '';
     
     if (theme === 'dark') {
       btn.innerHTML = `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="12" cy="12" r="5"></circle>
           <line x1="12" y1="1" x2="12" y2="3"></line>
           <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -72,14 +70,12 @@ function updateThemeButtonIcons(theme) {
           <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
           <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         </svg>
-        ${label}
       `;
     } else {
       btn.innerHTML = `
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
-        ${label}
       `;
     }
   });
@@ -110,7 +106,15 @@ function applyDirection(dir) {
     btn.setAttribute('aria-label', dir === 'rtl' ? 'Switch to Left-to-Right layout' : 'Switch to Right-to-Left layout');
     btn.title = dir === 'rtl' ? 'Switch to LTR' : 'Switch to RTL';
     const isDrawer = btn.closest('.drawer-preferences') !== null || btn.closest('.drawer-pref-group') !== null;
-    btn.textContent = isDrawer ? (dir === 'rtl' ? 'RTL Active (Switch to LTR)' : 'LTR Active (Switch to RTL)') : dir.toUpperCase();
+    if (isDrawer) {
+      btn.innerHTML = `
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M8 3L4 7l4 4M4 7h16M16 21l4-4-4-4M20 17H4"></path>
+        </svg>
+      `;
+    } else {
+      btn.textContent = dir.toUpperCase();
+    }
   });
 }
 
@@ -135,6 +139,13 @@ function initMobileNav() {
   function closeDrawer() {
     document.body.classList.remove('mobile-nav-open');
     menuToggle.setAttribute('aria-expanded', 'false');
+    // Requirement: "menu close panah dropdown close aagirum"
+    drawer.querySelectorAll('.has-mobile-dropdown').forEach(item => {
+      item.classList.remove('open');
+    });
+    drawer.querySelectorAll('.mobile-dropdown-btn').forEach(btn => {
+      btn.setAttribute('aria-expanded', 'false');
+    });
     menuToggle.focus();
   }
 
@@ -160,6 +171,20 @@ function initMobileNav() {
     if (e.key === 'Escape' && document.body.classList.contains('mobile-nav-open')) {
       closeDrawer();
     }
+  });
+
+  // Handle mobile accordion dropdowns
+  const mobileDropdownBtns = drawer.querySelectorAll('.mobile-dropdown-btn');
+  mobileDropdownBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const parent = btn.closest('.has-mobile-dropdown');
+      if (parent) {
+        const isOpen = parent.classList.contains('open');
+        parent.classList.toggle('open');
+        btn.setAttribute('aria-expanded', !isOpen ? 'true' : 'false');
+      }
+    });
   });
 
   // Close drawer when a navigation link is clicked

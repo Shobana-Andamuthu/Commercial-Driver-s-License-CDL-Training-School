@@ -96,9 +96,12 @@
       </button>
     </div>
     <ul class="mobile-nav-list">
-      <li>
-        <span class="mobile-nav-link">Home Options</span>
-        <ul class="mobile-submenu">
+      <li class="mobile-nav-item has-mobile-dropdown">
+        <button type="button" class="mobile-nav-link mobile-dropdown-btn" id="mobileHomeToggle" aria-expanded="false">
+          <span>Home</span>
+          <svg class="mobile-chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <ul class="mobile-submenu" id="mobileHomeSubmenu">
           <li><a href="index.html" class="mobile-sublink">Home 1 (Career Focused)</a></li>
           <li><a href="home-2.html" class="mobile-sublink">Home 2 (Split-Screen)</a></li>
         </ul>
@@ -112,11 +115,12 @@
     <div class="drawer-preferences">
       <span class="drawer-pref-title">Display Settings</span>
       <div class="drawer-pref-group">
-        <button class="tool-btn theme-toggle-btn" type="button" aria-label="Toggle theme">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-          <span>Theme Mode</span>
+        <button class="tool-btn theme-toggle-btn" type="button" aria-label="Toggle theme" title="Toggle theme">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
         </button>
-        <button class="tool-btn dir-toggle-btn" type="button" aria-label="Toggle direction">LTR / RTL</button>
+        <button class="tool-btn dir-toggle-btn" type="button" aria-label="Toggle direction" title="Toggle direction">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3L4 7l4 4M4 7h16M16 21l4-4-4-4M20 17H4"></path></svg>
+        </button>
       </div>
     </div>
     <div class="drawer-cta">
