@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex CDL Academy | Commercial Driver's License Training School</title>
+  <meta name="description" content="Launch a high-paying commercial driving career with certified Class A & Class B CDL training, hands-on behind-the-wheel practice, and career placement.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Preloader Screen -->
+  <div id="apexPreloader" class="apex-preloader" aria-hidden="true">
+    <div class="preloader-content">
+      <div class="preloader-truck-box">
+        <svg class="preloader-truck-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="3" width="15" height="13"></rect>
+          <polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon>
+          <circle cx="5.5" cy="18.5" r="2.5"></circle>
+          <circle cx="18.5" cy="18.5" r="2.5"></circle>
+        </svg>
+      </div>
+      <div class="preloader-title">APEX CDL ACADEMY</div>
+      <div class="preloader-track">
+        <div class="preloader-bar"></div>
+      </div>
+      <div class="preloader-subtext">Initializing Training Grounds...</div>
+    </div>
+  </div>
+
+  <!-- Site Header (Excluded from content section count) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" id="brandLogoHome1">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="3" width="15" height="13"></rect>
+            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">APEX CDL</span>
+          <span class="brand-subtitle">Commercial Driving School</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation (Displayed on wide desktop screens >= 1367px) -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <div class="nav-item has-dropdown">
+          <a href="index.html" class="nav-link active" id="desktopHomeLink">
+            Home
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <ul class="dropdown-menu" aria-label="Home Versions">
+            <li><a href="index.html" class="dropdown-link active">Home 1 (Career Focus)</a></li>
+            <li><a href="home-2.html" class="dropdown-link">Home 2 (Split-Screen)</a></li>
+          </ul>
+        </div>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="instructors.html" class="nav-link">Instructors</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+      </nav>
+
+      <!-- Header Action Controls -->
+      <div class="header-actions">
+        <button class="tool-btn theme-toggle-btn" type="button" aria-label="Toggle theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <button class="tool-btn dir-toggle-btn" type="button" aria-label="Toggle direction">LTR</button>
+        <a href="login.html" class="btn btn-navy btn-sm" id="headerLoginBtn">Login</a>
+        <a href="register.html" class="btn btn-primary btn-sm" id="headerCtaBtn">Enroll Now</a>
+        <!-- Hamburger Button for Mobile, Tablet, iPad, and iPad Pro -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Open mobile navigation menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile / Tablet / iPad Drawer Navigation -->
+  <div class="mobile-nav-backdrop" id="navBackdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation Menu">
+    <div class="drawer-header">
+      <span class="brand-title">Apex Navigation</span>
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li>
+        <span class="mobile-nav-link active">Home Options</span>
+        <ul class="mobile-submenu">
+          <li><a href="index.html" class="mobile-sublink active">Home 1 (Career Focused)</a></li>
+          <li><a href="home-2.html" class="mobile-sublink">Home 2 (Split-Screen)</a></li>
+        </ul>
+      </li>
+      <li><a href="programs.html" class="mobile-nav-link">Training Programs</a></li>
+      <li><a href="instructors.html" class="mobile-nav-link">Certified Instructors</a></li>
+      <li><a href="about.html" class="mobile-nav-link">About Academy</a></li>
+      <li><a href="contact.html" class="mobile-nav-link">Contact & Campus</a></li>
+      <li><a href="dashboard.html" class="mobile-nav-link">Student Portal Dashboard</a></li>
+    </ul>
+    <div class="drawer-preferences">
+      <span class="drawer-pref-title">Display Settings</span>
+      <div class="drawer-pref-group">
+        <button class="tool-btn theme-toggle-btn" type="button" aria-label="Toggle theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <span>Theme Mode</span>
+        </button>
+        <button class="tool-btn dir-toggle-btn" type="button" aria-label="Toggle direction">LTR / RTL</button>
+      </div>
+    </div>
+    <div class="drawer-cta">
+      <a href="login.html" class="btn btn-navy btn-block">Student Login</a>
+      <a href="register.html" class="btn btn-primary btn-block">Enroll Today</a>
+    </div>
+  </aside>
+
+  <!-- STRICT REQUIREMENT: MAIN CONTENT WITH EXACTLY 5 SECTIONS -->
+  <main class="site-main" id="mainContent">
+
+    <!-- SECTION 1: Hero Section (Career-Focused) -->
+    <section class="content-section hero-home1" id="homeSection1" aria-labelledby="heroTitle">
+      <div class="container hero-home1-grid">
+        <div class="hero-home1-content">
+          <span class="hero-badge">FMCSA & ELDT Registered Training Provider</span>
+          <h1 id="heroTitle">Master The Road. Earn Your Professional CDL License.</h1>
+          <p>
+            Accelerate into an essential commercial driving career with industry-accredited Class A and Class B CDL training. Experience one-on-one behind-the-wheel instruction, modern equipment, and dedicated job placement assistance.
+          </p>
+          <div class="hero-actions">
+            <a href="register.html" class="btn btn-primary" id="heroEnrollBtn">Enroll for Next Class</a>
+            <a href="programs.html" class="btn btn-outline" id="heroExploreProgramsBtn">View Training Programs</a>
+          </div>
+          <div class="hero-guarantee-row">
+            <div class="hero-guarantee-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F28C28" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>160-Hour Comprehensive Course</span>
+            </div>
+            <div class="hero-guarantee-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F28C28" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Dedicated Pre-Trip Range</span>
+            </div>
+            <div class="hero-guarantee-item">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F28C28" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>96% First-Time Pass Rate*</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-home1-media">
+          <img src="assets/images/hero-truck.jpg" alt="Modern Class A commercial tractor trailer parked in Apex training lot" width="800" height="500" loading="eager">
+          <div class="media-floating-badge">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F28C28" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <div>
+              <strong>Flexible Shifts</strong>
+              <span>Day & Weekend Cohorts</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Career Outcomes & 3-Tier Salary Pathways (Unique 3-Tier Layout) -->
+    <section class="content-section bg-alt" id="homeSection2" aria-labelledby="careerOutcomesTitle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Career Pathways</span>
+          <h2 class="section-title" id="careerOutcomesTitle">High-Demand Commercial Driving Pathways</h2>
+          <p class="section-description">
+            Commercial drivers keep the continental supply chain moving. Our graduates step directly into dependable regional, local, and specialized logistics careers.
+          </p>
+        </div>
+
+        <div class="career-tiers-grid">
+          <!-- Tier 1: Local Routes -->
+          <article class="tier-card">
+            <span class="card-tag">Local & Municipal</span>
+            <div class="tier-salary">$58,000 - $68,000</div>
+            <div class="tier-subtext">Estimated First-Year Base &bull; Daily Home Time</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.65rem;">Class B Local Delivery & Utility</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+              Ideal for straight truck operators, concrete mixers, beverage distribution, and municipal public works with fixed daytime shifts.
+            </p>
+            <ul class="card-meta-list" style="margin-top: auto; font-size: 0.85rem;">
+              <li class="card-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F28C28" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Home with family every single night</span>
+              </li>
+              <li class="card-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F28C28" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Strong government & union benefits</span>
+              </li>
+            </ul>
+            <a href="programs.html" class="btn btn-outline btn-block" style="margin-top: 1rem;">View Class B Route Prep</a>
+          </article>
+
+          <!-- Tier 2: Regional Dedicated (Featured) -->
+          <article class="tier-card featured">
+            <span class="tier-ribbon">Most Enrolled</span>
+            <span class="card-tag accent">Regional Dedicated</span>
+            <div class="tier-salary" style="color: var(--color-accent);">$72,000 - $88,000</div>
+            <div class="tier-subtext">Average Starting Wage &bull; Home Weekly</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.65rem;">Class A Dedicated Dry Van & Reefer</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+              Predictable contracted freight corridors with major retail and manufacturing logistics networks across adjacent states.
+            </p>
+            <ul class="card-meta-list" style="margin-top: auto; font-size: 0.85rem;">
+              <li class="card-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F28C28" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Guaranteed weekly mileage & route stability</span>
+              </li>
+              <li class="card-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F28C28" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>100% Tuition reimbursement partner fleets</span>
+              </li>
+            </ul>
+            <a href="register.html" class="btn btn-primary btn-block" style="margin-top: 1rem;">Fast-Track Class A</a>
+          </article>
+
+          <!-- Tier 3: OTR & Specialized -->
+          <article class="tier-card">
+            <span class="card-tag">Specialized & OTR</span>
+            <div class="tier-salary">$85,000 - $115,000+</div>
+            <div class="tier-subtext">Top Earning Potential &bull; HazMat / Tanker</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.65rem;">National Long-Haul & Bulk HazMat</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+              Maximum mileage rate premiums hauling specialized tankers, double trailers, oversized flatbeds, and climate-controlled medical cargo.
+            </p>
+            <ul class="card-meta-list" style="margin-top: auto; font-size: 0.85rem;">
+              <li class="card-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F28C28" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Maximum pay-per-mile plus safety bonuses</span>
+              </li>
+              <li class="card-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F28C28" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Direct pre-hire letters prior to DMV exam</span>
+              </li>
+            </ul>
+            <a href="programs.html" class="btn btn-outline btn-block" style="margin-top: 1rem;">Explore Endorsements</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Class A vs Class B Dual-Track Comparison (Unique Asymmetric Layout) -->
+    <section class="content-section" id="homeSection3" aria-labelledby="programsHighlightTitle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Licensing Tracks</span>
+          <h2 class="section-title" id="programsHighlightTitle">Compare Class A & Class B Licensure</h2>
+          <p class="section-description">
+            Determine the right commercial qualification for your driving career ambitions and lifestyle requirements.
+          </p>
+        </div>
+
+        <div class="comparison-dual-track">
+          <!-- Track Box 1: Class A -->
+          <div class="track-box primary-track">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem;">
+              <div>
+                <span class="card-tag accent">Top Career Track</span>
+                <h3 style="font-size: 1.45rem; margin-top: 0.4rem;">Commercial Class A Tractor-Trailer</h3>
+              </div>
+              <span class="badge-blue" style="font-size: 0.85rem; padding: 0.4rem 0.85rem;">160 Total Hours</span>
+            </div>
+            <p style="margin: 0.85rem 0 1rem 0; font-size: 0.95rem;">
+              Complete credential for operating any combination vehicle weighing 26,001+ lbs with a trailer over 10,000 lbs. Unlocks 92% of all commercial driving jobs nationwide.
+            </p>
+
+            <div class="track-hours-meter">
+              <div class="track-meter-segment">
+                <span class="track-meter-num">40 Hrs</span>
+                <span class="track-meter-label">CLP Classroom</span>
+              </div>
+              <div class="track-meter-segment">
+                <span class="track-meter-num">60 Hrs</span>
+                <span class="track-meter-label">Range Backing</span>
+              </div>
+              <div class="track-meter-segment">
+                <span class="track-meter-num">60 Hrs</span>
+                <span class="track-meter-label">Highway Road</span>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; font-size: 0.875rem; margin-bottom: 1.5rem; color: var(--text-main);">
+              <div>&check; 53-Foot Wabash Dry Van Range</div>
+              <div>&check; 10-Speed Manual & Automatic</div>
+              <div>&check; Air Brakes & Combination Rating</div>
+              <div>&check; Official DMV Testing on Site</div>
+            </div>
+
+            <div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 0.75rem;">
+              <a href="register.html" class="btn btn-primary">Enroll in Class A</a>
+              <a href="programs.html" class="btn btn-outline">Full Class A Syllabus</a>
+            </div>
+          </div>
+
+          <!-- Track Box 2: Class B -->
+          <div class="track-box">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem;">
+              <div>
+                <span class="card-tag">Local Specialist</span>
+                <h3 style="font-size: 1.45rem; margin-top: 0.4rem;">Commercial Class B Straight Truck</h3>
+              </div>
+              <span class="badge-purple" style="font-size: 0.85rem; padding: 0.4rem 0.85rem;">120 Total Hours</span>
+            </div>
+            <p style="margin: 0.85rem 0 1rem 0; font-size: 0.95rem;">
+              Streamlined program for single commercial vehicles weighing 26,001+ lbs. Perfect for local box trucks, dump trucks, delivery vans, and passenger transport.
+            </p>
+
+            <div class="track-hours-meter">
+              <div class="track-meter-segment">
+                <span class="track-meter-num">30 Hrs</span>
+                <span class="track-meter-label">ELDT Theory</span>
+              </div>
+              <div class="track-meter-segment">
+                <span class="track-meter-num">50 Hrs</span>
+                <span class="track-meter-label">Yard Maneuvers</span>
+              </div>
+              <div class="track-meter-segment">
+                <span class="track-meter-num">40 Hrs</span>
+                <span class="track-meter-label">Urban Road</span>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; font-size: 0.875rem; margin-bottom: 1.5rem; color: var(--text-main);">
+              <div>&check; Straight Box & Utility Rig Fleet</div>
+              <div>&check; Hydraulic & Full Air Brake Checks</div>
+              <div>&check; Passenger / Bus Endorsement Available</div>
+              <div>&check; 3-Week Accelerated Completion</div>
+            </div>
+
+            <div style="margin-top: auto; display: flex; flex-wrap: wrap; gap: 0.75rem;">
+              <a href="register.html" class="btn btn-navy">Enroll in Class B</a>
+              <a href="programs.html" class="btn btn-outline">Full Class B Syllabus</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Training Facility & Maneuvering Yard Experience (Split Visual Showcase) -->
+    <section class="content-section bg-alt" id="homeSection4" aria-labelledby="experienceTitle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Practical Instruction</span>
+          <h2 class="section-title" id="experienceTitle">Hands-On Yard & Highway Mastery</h2>
+          <p class="section-description">
+            Train on our private 10-acre dedicated commercial proving ground with zero civilian distractions before taking on public highways.
+          </p>
+        </div>
+
+        <div class="yard-features-wrapper">
+          <div class="yard-features-grid">
+            <!-- Yard Feature 1 -->
+            <div class="yard-feature-card">
+              <div class="yard-feature-icon" style="background: var(--color-accent-subtle); color: var(--color-accent);">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg>
+              </div>
+              <div class="yard-feature-body">
+                <strong>10-Acre Maneuvering Pad</strong>
+                <p>
+                  Spacious paved range marked with official state testing boundaries for 90-degree alley docks, offset lanes, and parallel stalls.
+                </p>
+              </div>
+            </div>
+
+            <!-- Yard Feature 2 -->
+            <div class="yard-feature-card">
+              <div class="yard-feature-icon" style="background: rgba(37, 99, 235, 0.12); color: #2563EB;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              </div>
+              <div class="yard-feature-body">
+                <strong>110-Point Mechanical Lab</strong>
+                <p>
+                  Dedicated walkaround inspection bays where students master air brake chambers, slack adjusters, fifth wheel coupling, and fluid checks.
+                </p>
+              </div>
+            </div>
+
+            <!-- Yard Feature 3 -->
+            <div class="yard-feature-card">
+              <div class="yard-feature-icon" style="background: rgba(16, 185, 129, 0.12); color: #10B981;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 10"></polyline></svg>
+              </div>
+              <div class="yard-feature-body">
+                <strong>Real Highway Ramp Merging</strong>
+                <p>
+                  60 hours behind the wheel navigating interstate traffic, mountain grade downshifting, blind spot monitoring, and bridge clearances.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Student Success, Carrier Partners & Final Enrollment CTA -->
+    <section class="content-section" id="homeSection5" aria-labelledby="testimonialsTitle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Student Success</span>
+          <h2 class="section-title" id="testimonialsTitle">Tested, Licensed, and Driving with Confidence</h2>
+          <p class="section-description">
+            Read direct experiences from graduates who transitioned into lucrative commercial driving careers.
+          </p>
+        </div>
+
+        <div class="card-grid-2" style="margin-bottom: 2rem;">
+          <!-- Testimonial Card 1 -->
+          <article class="testimonial-card">
+            <div class="card-media avatar-square" style="max-width: 80px; margin-bottom: 0.85rem; border-radius: 50%;">
+              <img src="assets/images/instructor-sarah.jpg" alt="Graduate student Devon Miller" width="80" height="80" loading="lazy">
+            </div>
+            <span class="card-tag accent">Class A Graduate</span>
+            <h3 class="card-title">"Passed My State Exam On The First Attempt!"</h3>
+            <p class="card-desc">
+              The instructors at Apex are patient, thorough, and demanding in the best way possible. By test day, the 90-degree alley dock felt completely second nature.
+            </p>
+            <div class="card-footer-action">
+              <strong style="display:block; font-size: 0.95rem;">Devon Miller</strong>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">Regional Driver at Penske Logistics &bull; $78,000/yr</span>
+            </div>
+          </article>
+
+          <!-- Testimonial Card 2 -->
+          <article class="testimonial-card">
+            <div class="card-media avatar-square" style="max-width: 80px; margin-bottom: 0.85rem; border-radius: 50%;">
+              <img src="assets/images/student-success.jpg" alt="Graduate student Carlos Mendez" width="80" height="80" loading="lazy">
+            </div>
+            <span class="card-tag">Class B Graduate</span>
+            <h3 class="card-title">"Secured A Municipal Driving Role In 2 Weeks"</h3>
+            <p class="card-desc">
+              Apex career placement helped me review my resume and set up interviews before graduation. I'm now driving locally with excellent benefits and evening home time.
+            </p>
+            <div class="card-footer-action">
+              <strong style="display:block; font-size: 0.95rem;">Carlos Mendez</strong>
+              <span style="font-size: 0.85rem; color: var(--text-muted);">Municipal Utility Operator &bull; City Public Works</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Carrier Partner Logo Showcase -->
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <span style="font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted);">
+            Graduates Hired By Industry-Leading Carrier Partners
+          </span>
+          <div class="carrier-logos-bar">
+            <div class="carrier-logo-item">PENSKE</div>
+            <div class="carrier-logo-item">J.B. HUNT</div>
+            <div class="carrier-logo-item">SCHNEIDER</div>
+            <div class="carrier-logo-item">WERNER</div>
+            <div class="carrier-logo-item">SWIFT</div>
+          </div>
+        </div>
+
+        <!-- Enrollment CTA Banner Box -->
+        <div style="background-color: var(--color-primary); color: #FFFFFF; border-radius: var(--radius-md); padding: clamp(2rem, 4vw, 2.75rem); text-align: center; border: 1px solid var(--border-color);">
+          <h3 style="color: #FFFFFF; font-size: clamp(1.35rem, 2.5vw, 1.85rem); margin-bottom: 0.65rem;">Ready to Start Your Commercial Driving Journey?</h3>
+          <p style="color: #CBD5E1; max-width: 600px; margin: 0 auto 1.35rem auto; font-size: 0.95rem;">
+            New cohorts start every Monday. Meet our certified instructors, tour our 10-acre training yard, and discuss tuition grant options.
+          </p>
+          <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.85rem;">
+            <a href="register.html" class="btn btn-primary">Enroll in Next Cohort</a>
+            <a href="contact.html" class="btn btn-outline" style="border-color: #5282a6; color: #FFFFFF;">Schedule Campus Visit</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer (Rich 4-Column Layout, Compact Spacing, Contact Info & Socials) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid-4">
+        <!-- Col 1: Brand Info & Accreditation -->
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom: 0.85rem;">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-title" style="color: #FFFFFF;">APEX CDL ACADEMY</span>
+              <span class="brand-subtitle">Commercial Driver Training</span>
+            </div>
+          </div>
+          <p style="color: #94A3B8; font-size: 0.875rem; line-height: 1.55; margin-bottom: 0.85rem;">
+            FMCSA-registered Entry-Level Driver Training (ELDT) institution equipping drivers with professional Class A & B certifications, modern tractor-trailer skills, and direct carrier placement.
+          </p>
+          <div style="font-size: 0.8rem; color: #CBD5E1; display: inline-flex; align-items: center; gap: 0.45rem; background: rgba(255,255,255,0.06); padding: 0.35rem 0.75rem; border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.1);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F28C28" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>FMCSA Registry #TR-94281</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Training Tracks -->
+        <div class="footer-col">
+          <h3>Training Programs</h3>
+          <ul class="footer-links">
+            <li><a href="programs.html">&bull; Class A Tractor-Trailer Track</a></li>
+            <li><a href="programs.html">&bull; Class B Straight Truck Track</a></li>
+            <li><a href="programs.html">&bull; Tanker & HazMat Endorsements</a></li>
+            <li><a href="programs.html">&bull; 40-Hour Skills Refresher</a></li>
+            <li><a href="programs.html">&bull; 110-Point Pre-Trip Intensive</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Student & Career Links -->
+        <div class="footer-col">
+          <h3>Quick Links & Resources</h3>
+          <ul class="footer-links">
+            <li><a href="home-2.html">&bull; Home 2 (Training Journey)</a></li>
+            <li><a href="dashboard.html">&bull; Trainee Portal Dashboard</a></li>
+            <li><a href="instructors.html">&bull; Certified DOT Instructors</a></li>
+            <li><a href="about.html">&bull; Campus & Fleet Facility</a></li>
+            <li><a href="register.html">&bull; Online Seat Enrollment</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Campus Contact Info & Social Icons -->
+        <div class="footer-col">
+          <h3>Campus & Contacts</h3>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>1045 Logistics Express Blvd, Fort Worth, TX 76177</span>
+            </li>
+            <li class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>(800) 555-APEX &bull; (800) 555-2739</span>
+            </li>
+            <li class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span>admissions@apexcdlacademy.com</span>
+            </li>
+            <li class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>Yard Open: Mon-Sat 6:30 AM - 7:30 PM</span>
+            </li>
+          </ul>
+
+          <!-- Social Icons -->
+          <div class="footer-social-links" aria-label="Social Media Links">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#FFFFFF"></polygon></svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="X (formerly Twitter)">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Apex CDL Academy. All rights reserved. Registered Commercial Driver Training Facility.</div>
+        <div>FMCSA Registry #TR-94281 &bull; Certified ELDT School &bull; Equal Opportunity Training Partner</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Arrow Button -->
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Scroll back to top" title="Scroll back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

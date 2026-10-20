@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex CDL Academy | Student Portal & Training Progress Dashboard</title>
+  <meta name="description" content="View your behind-the-wheel driving hours, yard backing maneuvers, DMV exam scheduling, and instructor feedback logs.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dashboard-page-body">
+
+  <!-- Preloader Screen -->
+  <div id="apexPreloader" class="apex-preloader" aria-hidden="true">
+    <div class="preloader-content">
+      <div class="preloader-truck-box">
+        <svg class="preloader-truck-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="3" width="15" height="13"></rect>
+          <polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon>
+          <circle cx="5.5" cy="18.5" r="2.5"></circle>
+          <circle cx="18.5" cy="18.5" r="2.5"></circle>
+        </svg>
+      </div>
+      <div class="preloader-title">APEX CDL ACADEMY</div>
+      <div class="preloader-track">
+        <div class="preloader-bar"></div>
+      </div>
+      <div class="preloader-subtext">Loading Student Logs & Metrics...</div>
+    </div>
+  </div>
+
+  <!-- Reference Image Matched Top Navbar -->
+  <header class="dash-topbar" id="dashTopBar">
+    <div class="dash-topbar-inner">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <a href="index.html" class="brand-logo" id="brandLogoDashboard">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="3" width="15" height="13"></rect>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon>
+              <circle cx="5.5" cy="18.5" r="2.5"></circle>
+              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-title">APEX CDL</span>
+            <span class="brand-subtitle">Commercial Driving Academy</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Action Controls (Desktop: shown in topbar, Mobile <= 1024px: hidden from topbar and tucked inside drawer) -->
+      <div class="dash-topbar-actions">
+        <button class="tool-btn dir-toggle-btn" type="button" aria-label="Toggle direction" title="Toggle RTL/LTR">LTR</button>
+        <button class="tool-btn theme-toggle-btn" type="button" aria-label="Toggle theme" title="Toggle Theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <div class="dash-profile-dropdown">
+          <button class="dash-profile-btn" id="dashProfileBtn" type="button" aria-label="User Profile">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Profile</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div id="dashProfileMenu" style="display: none; position: absolute; right: 0; top: 110%; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); box-shadow: var(--shadow-md); padding: 0.5rem; min-width: 180px; z-index: 100;">
+            <div style="padding: 0.5rem; border-bottom: 1px solid var(--border-color); font-size: 0.825rem;">
+              <strong>Jordan Davis</strong><br><span style="color: var(--text-muted); font-size: 0.75rem;">Class A Trainee</span>
+            </div>
+            <a href="index.html" style="display: block; padding: 0.5rem; font-size: 0.85rem; color: #EF4444;">Sign Out</a>
+          </div>
+        </div>
+
+        <button class="dash-btn-primary" id="dashActionBtn" type="button" onclick="alert('Session booking request submitted! An instructor will confirm your cab slot. (Demo mode)');">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          <span>+ Schedule Drive Session</span>
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger Button to open sidebar menu on mobile -->
+      <button class="dash-mobile-toggle" id="dashMobileToggle" aria-label="Open Dashboard Menu" type="button">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Sidebar Backdrop -->
+  <div class="dash-sidebar-backdrop" id="dashSidebarBackdrop"></div>
+
+  <!-- 2-Column Dashboard Shell -->
+  <div class="dash-layout-container">
+
+    <!-- Left Sidebar with Academy Theme & Mobile Menu Support -->
+    <aside class="dash-sidebar" id="dashSidebar" aria-label="Dashboard Sidebar">
+      <!-- Mobile Drawer Close Header (Visible only on mobile/tablet) -->
+      <div class="dash-sidebar-mobile-header">
+        <span class="dash-sidebar-title">Student Portal Menu</span>
+        <button type="button" class="dash-sidebar-close" id="dashSidebarClose" aria-label="Close Dashboard Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <!-- Mobile Action Section inside Menu Drawer (Visible only on mobile/tablet) -->
+      <div class="dash-sidebar-mobile-actions">
+        <button class="dash-btn-primary btn-block" type="button" onclick="alert('Session booking request submitted! (Demo mode)');">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          <span>+ Schedule Drive Session</span>
+        </button>
+        <div class="drawer-pref-group" style="margin-top: 0.75rem;">
+          <button class="tool-btn theme-toggle-btn" type="button" aria-label="Toggle theme">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <span>Theme Mode</span>
+          </button>
+          <button class="tool-btn dir-toggle-btn" type="button" aria-label="Toggle direction">LTR / RTL</button>
+        </div>
+      </div>
+
+      <!-- Trainee Profile Snippet -->
+      <div class="dash-trainee-profile">
+        <div class="dash-trainee-avatar">JD</div>
+        <div>
+          <div class="dash-trainee-name">Jordan Davis</div>
+          <div class="dash-trainee-id">Class A Trainee #CDL-8492</div>
+        </div>
+      </div>
+
+      <!-- Numbered Vertical Tab Navigation Buttons -->
+      <ul class="dash-menu-list">
+        <li class="dash-menu-item">
+          <button type="button" class="dash-menu-link active" data-view="viewOverview" id="btnTabOverview">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span>1. Overview</span>
+          </button>
+        </li>
+        <li class="dash-menu-item">
+          <button type="button" class="dash-menu-link" data-view="viewLogs" id="btnTabLogs">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>2. Road Hours & Drive Log</span>
+          </button>
+        </li>
+        <li class="dash-menu-item">
+          <button type="button" class="dash-menu-link" data-view="viewSkills" id="btnTabSkills">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            <span>3. Maneuver & Yard Tracking</span>
+          </button>
+        </li>
+        <li class="dash-menu-item">
+          <button type="button" class="dash-menu-link" data-view="viewExams" id="btnTabExams">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            <span>4. CDL Tests & Endorsements</span>
+          </button>
+        </li>
+        <li class="dash-menu-item">
+          <button type="button" class="dash-menu-link" data-view="viewCompliance" id="btnTabCompliance">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            <span>5. FMCSA Compliance & Docs</span>
+          </button>
+        </li>
+      </ul>
+
+      <!-- Sign Out Button at bottom of sidebar -->
+      <div class="dash-signout-row">
+        <a href="index.html" class="dash-signout-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          <span>Sign Out</span>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Right Main Content Area (Houses Independent Tabbed Views) -->
+    <main class="dash-content-area" id="mainDashContent">
+
+      <!-- Simulated Alert Callout Banner -->
+      <div class="dash-simulated-callout">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </svg>
+        <div>
+          <strong>Apex Student Portal Training Environment:</strong> Real-time driving records, backing evaluation logs, and FMCSA ELDT compliance data for enrolled trainee Jordan Davis (#CDL-8492).
+        </div>
+      </div>
+
+      <!-- =====================================================================
+           TAB 1: OVERVIEW VIEW
+           ===================================================================== -->
+      <section class="dash-tab-view active" id="viewOverview" aria-label="Overview Tab">
+        <div class="dash-view-header">
+          <div>
+            <h1>1. Training Overview & Key Metrics</h1>
+            <p>Real-time progress aggregate across driving hours, test maneuvers, and certification milestones.</p>
+          </div>
+          <div class="dash-snapshot-badge">
+            ACTIVE COHORT &bull; WEEK 3
+          </div>
+        </div>
+
+        <!-- 4 Key Metric Cards Row -->
+        <div class="dash-cards-grid">
+          <!-- Card 1 -->
+          <article class="dash-stat-box">
+            <div class="dash-stat-head">
+              <span class="dash-stat-title">Active Drive Hours</span>
+              <div class="dash-stat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+              </div>
+            </div>
+            <div class="dash-stat-value">124 <span style="font-size: 1rem; color: var(--text-muted); font-weight: 500;">/ 160 hrs</span></div>
+            <div class="dash-stat-subtext">
+              <span>&and; 36 hours remaining (77.5%)</span>
+            </div>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="dash-stat-box">
+            <div class="dash-stat-head">
+              <span class="dash-stat-title">Yard Backing Score</span>
+              <div class="dash-stat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+              </div>
+            </div>
+            <div class="dash-stat-value">96.8%</div>
+            <div class="dash-stat-subtext">
+              <span>&and; +4.2% above state cutoff</span>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="dash-stat-box">
+            <div class="dash-stat-head">
+              <span class="dash-stat-title">ELDT Theory Progress</span>
+              <div class="dash-stat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              </div>
+            </div>
+            <div class="dash-stat-value">100%</div>
+            <div class="dash-stat-subtext neutral" style="color: var(--color-secondary);">
+              <span>FMCSA Registry Verified</span>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="dash-stat-box">
+            <div class="dash-stat-head">
+              <span class="dash-stat-title">State CDL Road Exam</span>
+              <div class="dash-stat-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 10"></polyline></svg>
+              </div>
+            </div>
+            <div class="dash-stat-value">18 Days</div>
+            <div class="dash-stat-subtext neutral">
+              <span>Confirmed for Nov 8, 2026</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Upcoming Session Card & Quick Navigation -->
+        <div style="display: grid; grid-template-columns: 1fr; gap: 1.25rem;" class="dash-overview-split">
+          <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1.35rem 1.5rem; box-shadow: var(--shadow-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <h3 style="font-size: 1.1rem; color: var(--color-primary); margin: 0;">Next Scheduled Cab Session</h3>
+              <span class="badge-blue">&bull; TODAY @ 10:45 AM</span>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+              Interstate highway merging, traffic spacing cushion, and 10-speed Eaton Fuller downshift progression on I-35W corridor with Senior Coach Marcus Vance.
+            </p>
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; font-size: 0.85rem; color: var(--text-main);">
+              <div><strong>Vehicle:</strong> Freightliner Cascadia #12</div>
+              <div><strong>Pre-Trip Check:</strong> 10:30 AM (Range Bay 2)</div>
+              <div><strong>Duration:</strong> 3.5 Hours Road Shift</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           TAB 2: ROAD HOURS & DRIVE LOG VIEW
+           ===================================================================== -->
+      <section class="dash-tab-view" id="viewLogs" aria-label="Drive Logs Tab">
+        <div class="dash-view-header">
+          <div>
+            <h1>2. Behind-The-Wheel Driving Hours Audit Log</h1>
+            <p>Complete certified audit log of road driving hours, highway maneuvers, and instructor signatures.</p>
+          </div>
+          <div class="dash-snapshot-badge">
+            124 OF 160 HOURS CERTIFIED
+          </div>
+        </div>
+
+        <!-- Filter bar -->
+        <div class="dash-filter-bar">
+          <button type="button" class="dash-filter-pill active">All Shifts (12)</button>
+          <button type="button" class="dash-filter-pill">Highway / Interstate (5)</button>
+          <button type="button" class="dash-filter-pill">Range Backing (4)</button>
+          <button type="button" class="dash-filter-pill">Night Driving (3)</button>
+        </div>
+
+        <div class="dash-table-container">
+          <div class="dash-table-scroll">
+            <table class="dash-data-table">
+              <thead>
+                <tr>
+                  <th>DATE & TIME</th>
+                  <th>SESSION REF</th>
+                  <th>INSTRUCTOR</th>
+                  <th>VEHICLE</th>
+                  <th>TRAINING OPERATIONAL EVENT</th>
+                  <th>HOURS</th>
+                  <th>STATUS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Today, 10:45 AM</td>
+                  <td><strong>#CDL-84920</strong></td>
+                  <td>Marcus Vance</td>
+                  <td>Truck #12 (Cascadia)</td>
+                  <td>Interstate highway merging & downshift progression</td>
+                  <td><strong>3.5 hrs</strong></td>
+                  <td><span class="badge-blue">&bull; ACTIVE TODAY</span></td>
+                </tr>
+                <tr>
+                  <td>Yesterday, 03:15 PM</td>
+                  <td><strong>#CDL-84918</strong></td>
+                  <td>Sarah Jenkins</td>
+                  <td>Yard Bay 4 (53' Dry Van)</td>
+                  <td>90-Degree Alley Dock & blindside parallel backing</td>
+                  <td><strong>4.0 hrs</strong></td>
+                  <td><span class="badge-green">&bull; SIGNED OFF</span></td>
+                </tr>
+                <tr>
+                  <td>Oct 18, 2026</td>
+                  <td><strong>#CDL-84915</strong></td>
+                  <td>David Kowalski</td>
+                  <td>Truck #07 (Kenworth)</td>
+                  <td>110-Point Pre-Trip Air Brake leak test certification</td>
+                  <td><strong>4.0 hrs</strong></td>
+                  <td><span class="badge-green">&bull; VERIFIED</span></td>
+                </tr>
+                <tr>
+                  <td>Oct 16, 2026</td>
+                  <td><strong>#CDL-84912</strong></td>
+                  <td>Marcus Vance</td>
+                  <td>Truck #12 (Cascadia)</td>
+                  <td>Night driving cushion management & wet pavement stops</td>
+                  <td><strong>3.5 hrs</strong></td>
+                  <td><span class="badge-green">&bull; SIGNED OFF</span></td>
+                </tr>
+                <tr>
+                  <td>Oct 14, 2026</td>
+                  <td><strong>#CDL-84908</strong></td>
+                  <td>Sarah Jenkins</td>
+                  <td>Range Pad B</td>
+                  <td>Offset backing left/right and sight-side parallel</td>
+                  <td><strong>4.0 hrs</strong></td>
+                  <td><span class="badge-green">&bull; SIGNED OFF</span></td>
+                </tr>
+                <tr>
+                  <td>Oct 12, 2026</td>
+                  <td><strong>#CDL-84902</strong></td>
+                  <td>Marcus Vance</td>
+                  <td>Truck #12 (Cascadia)</td>
+                  <td>Fifth wheel uncoupling, kingpin locking & visual checks</td>
+                  <td><strong>3.0 hrs</strong></td>
+                  <td><span class="badge-green">&bull; SIGNED OFF</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           TAB 3: MANEUVER & YARD TRACKING VIEW
+           ===================================================================== -->
+      <section class="dash-tab-view" id="viewSkills" aria-label="Maneuver Tracking Tab">
+        <div class="dash-view-header">
+          <div>
+            <h1>3. Commercial Yard Maneuvers & Range Tracking</h1>
+            <p>Official FMCSA behind-the-wheel assessment scores recorded on school testing pad.</p>
+          </div>
+          <div class="dash-snapshot-badge">
+            AVERAGE SCORE: 96.2%
+          </div>
+        </div>
+
+        <div class="card-grid-2">
+          <!-- Maneuver 1 -->
+          <div style="background: var(--bg-card); padding: 1.35rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <strong style="font-size: 1rem; color: var(--color-primary);">Straight Line Backing (100 ft)</strong>
+              <span class="badge-green">&bull; MASTERED (100%)</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 100%;"></div></div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 0;">Completed 12 zero-encroachment runs. Evaluation signed off.</p>
+          </div>
+
+          <!-- Maneuver 2 -->
+          <div style="background: var(--bg-card); padding: 1.35rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <strong style="font-size: 1rem; color: var(--color-primary);">90-Degree Alley Dock Backing</strong>
+              <span class="badge-green">&bull; QUALIFIED (95%)</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 95%;"></div></div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 0;">Finished within 1 pull-up and 0 boundary touches on 12-ft loading bay.</p>
+          </div>
+
+          <!-- Maneuver 3 -->
+          <div style="background: var(--bg-card); padding: 1.35rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <strong style="font-size: 1rem; color: var(--color-primary);">Offset Backing (Right & Left)</strong>
+              <span class="badge-green">&bull; QUALIFIED (94%)</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 94%;"></div></div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 0;">Accurate pivot control and mirror sweep timing across lane shift.</p>
+          </div>
+
+          <!-- Maneuver 4 -->
+          <div style="background: var(--bg-card); padding: 1.35rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <strong style="font-size: 1rem; color: var(--color-primary);">Sight-Side Parallel Parking</strong>
+              <span class="badge-green">&bull; TEST READY (92%)</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 92%;"></div></div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 0;">Commercial trailer centered within 18 inches of safety curb boundary.</p>
+          </div>
+
+          <!-- Maneuver 5 -->
+          <div style="background: var(--bg-card); padding: 1.35rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <strong style="font-size: 1rem; color: var(--color-primary);">Blind-Side Parallel Parking</strong>
+              <span class="badge-purple">&bull; IN TRAINING (88%)</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 88%;"></div></div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 0;">Scheduled for 2 additional remedial range practice runs tomorrow.</p>
+          </div>
+
+          <!-- Maneuver 6 -->
+          <div style="background: var(--bg-card); padding: 1.35rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <strong style="font-size: 1rem; color: var(--color-primary);">110-Point Pre-Trip Walkaround</strong>
+              <span class="badge-green">&bull; MASTERED (98%)</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 98%;"></div></div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 0;">Full verbal articulation across air lines, slack adjusters, and brakes.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           TAB 4: CDL TESTS & ENDORSEMENTS VIEW
+           ===================================================================== -->
+      <section class="dash-tab-view" id="viewExams" aria-label="CDL Exams Tab">
+        <div class="dash-view-header">
+          <div>
+            <h1>4. State CDL Examination & Endorsements</h1>
+            <p>DPS Third-Party skills examination appointment and commercial endorsements progress.</p>
+          </div>
+          <div class="dash-snapshot-badge">
+            EXAM DATE: NOV 8, 2026
+          </div>
+        </div>
+
+        <!-- Confirmed Exam Appointment Card -->
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-left: 4px solid var(--color-accent); border-radius: var(--radius-md); padding: 1.5rem; box-shadow: var(--shadow-sm); margin-bottom: 1.5rem;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+            <h3 style="font-size: 1.15rem; color: var(--color-primary); margin: 0;">Official Third-Party State CDL Skills Test</h3>
+            <span class="badge-green">&bull; CONFIRMED APPOINTMENT</span>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1rem;">
+            Your commercial skills road and range exam is officially scheduled with our certified state third-party examiner at the Apex Fort Worth facility.
+          </p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; font-size: 0.875rem;">
+            <div><strong>Testing Date:</strong> Friday, Nov 8, 2026 @ 09:00 AM</div>
+            <div><strong>Location:</strong> Apex Range Testing Pad (Bay 1)</div>
+            <div><strong>Testing Rig:</strong> Freightliner Cascadia 10-Speed (#12)</div>
+            <div><strong>Lead Examiner:</strong> Sarah Jenkins (TPR Certified)</div>
+          </div>
+        </div>
+
+        <!-- Endorsements Status Grid -->
+        <h3 style="font-size: 1.15rem; color: var(--color-primary); margin-bottom: 1rem;">Commercial Endorsement Status</h3>
+        <div class="card-grid-2">
+          <div style="background: var(--bg-card); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.35rem;">
+              <strong>General Knowledge (CLP Written)</strong>
+              <span class="badge-green">&bull; PASSED (96%)</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0;">Passed at Texas DPS on first attempt.</p>
+          </div>
+
+          <div style="background: var(--bg-card); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.35rem;">
+              <strong>Air Brakes Endorsement</strong>
+              <span class="badge-green">&bull; PASSED (100%)</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0;">Passed 100% on safety air brake theory exam.</p>
+          </div>
+
+          <div style="background: var(--bg-card); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.35rem;">
+              <strong>Combination Vehicles</strong>
+              <span class="badge-green">&bull; PASSED (94%)</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0;">Trailer coupling and rollover physics cleared.</p>
+          </div>
+
+          <div style="background: var(--bg-card); padding: 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-color);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.35rem;">
+              <strong>Hazardous Materials (HazMat - H)</strong>
+              <span class="badge-blue">&bull; ELDT THEORY READY</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0;">TSA security background check completed.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+           TAB 5: FMCSA COMPLIANCE & DOCS VIEW
+           ===================================================================== -->
+      <section class="dash-tab-view" id="viewCompliance" aria-label="Compliance Documents Tab">
+        <div class="dash-view-header">
+          <div>
+            <h1>5. FMCSA Compliance & Student Documents</h1>
+            <p>Verification credentials required under 49 CFR Part 380 Entry-Level Driver Training regulations.</p>
+          </div>
+          <div class="dash-snapshot-badge">
+            TPR #TR-94281 VERIFIED
+          </div>
+        </div>
+
+        <div class="card-grid-2">
+          <!-- Doc 1 -->
+          <div style="background: var(--bg-card); padding: 1.35rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <h4 style="font-size: 1rem; color: var(--color-primary); margin: 0;">DOT Medical Certificate (MCSA-5876)</h4>
+              <span class="badge-green">&bull; ACTIVE</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+              Issued by National Registry Medical Examiner #NR-48201. 2-Year commercial validity.
+            </p>
+            <div style="font-size: 0.8rem; color: var(--text-main);"><strong>Expiration:</strong> Sept 24, 2027</div>
+          </div>
+
+          <!-- Doc 2 -->
+          <div style="background: var(--bg-card); padding: 1.35rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <h4 style="font-size: 1rem; color: var(--color-primary); margin: 0;">Commercial Learner's Permit (CLP)</h4>
+              <span class="badge-green">&bull; VERIFIED</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+              Texas DPS Class A Learner's Permit #TX-84920412. Clean driving record on file.
+            </p>
+            <div style="font-size: 0.8rem; color: var(--text-main);"><strong>Issue Date:</strong> Oct 02, 2026</div>
+          </div>
+
+          <!-- Doc 3 -->
+          <div style="background: var(--bg-card); padding: 1.35rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <h4 style="font-size: 1rem; color: var(--color-primary); margin: 0;">FMCSA ELDT Registry Upload</h4>
+              <span class="badge-green">&bull; TRANSMITTED</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+              Theory examination curriculum completion logged to federal TPR Registry #TR-94281.
+            </p>
+            <div style="font-size: 0.8rem; color: var(--text-main);"><strong>Status:</strong> State DPS Test Eligible</div>
+          </div>
+
+          <!-- Doc 4 -->
+          <div style="background: var(--bg-card); padding: 1.35rem; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <h4 style="font-size: 1rem; color: var(--color-primary); margin: 0;">DOT 5-Panel Pre-Screen</h4>
+              <span class="badge-green">&bull; CLEARED</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+              Pre-employment commercial driver screening results negative. Cleared for all shifts.
+            </p>
+            <div style="font-size: 0.8rem; color: var(--text-main);"><strong>Screen Date:</strong> Sept 28, 2026</div>
+          </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem;">
+          <button type="button" class="btn btn-navy btn-sm" onclick="alert('Downloading FMCSA verified compliance transcript (PDF demo)...');">
+            Download Full ELDT Transcript (PDF)
+          </button>
+          <button type="button" class="btn btn-outline btn-sm" onclick="alert('Document upload portal opened. Choose renewed medical certificate or CLP scan. (Demo mode)');">
+            Upload Document Update
+          </button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

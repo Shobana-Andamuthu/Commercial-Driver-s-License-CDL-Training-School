@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex CDL Academy | Modern Truck Driver Training Journey (Home 2)</title>
+  <meta name="description" content="Explore our step-by-step CDL training roadmap, license class comparison, and behind-the-wheel instruction format.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Preloader Screen -->
+  <div id="apexPreloader" class="apex-preloader" aria-hidden="true">
+    <div class="preloader-content">
+      <div class="preloader-truck-box">
+        <svg class="preloader-truck-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="3" width="15" height="13"></rect>
+          <polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon>
+          <circle cx="5.5" cy="18.5" r="2.5"></circle>
+          <circle cx="18.5" cy="18.5" r="2.5"></circle>
+        </svg>
+      </div>
+      <div class="preloader-title">APEX CDL ACADEMY</div>
+      <div class="preloader-track">
+        <div class="preloader-bar"></div>
+      </div>
+      <div class="preloader-subtext">Initializing Technical Cockpit...</div>
+    </div>
+  </div>
+
+  <!-- Site Header (Sticky on all screen sizes) -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" id="brandLogoHome2">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="3" width="15" height="13"></rect>
+            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">APEX CDL</span>
+          <span class="brand-subtitle">Commercial Driving School</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation (Displayed on wide screens >= 1367px) -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <div class="nav-item has-dropdown">
+          <a href="home-2.html" class="nav-link active" id="desktopHomeLink2">
+            Home
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <ul class="dropdown-menu" aria-label="Home Versions">
+            <li><a href="index.html" class="dropdown-link">Home 1 (Career Focus)</a></li>
+            <li><a href="home-2.html" class="dropdown-link active">Home 2 (Technical Journey)</a></li>
+          </ul>
+        </div>
+        <a href="programs.html" class="nav-link">Programs</a>
+        <a href="instructors.html" class="nav-link">Instructors</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+      </nav>
+
+      <!-- Header Action Controls -->
+      <div class="header-actions">
+        <button class="tool-btn theme-toggle-btn" type="button" aria-label="Toggle theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <button class="tool-btn dir-toggle-btn" type="button" aria-label="Toggle direction">LTR</button>
+        <a href="login.html" class="btn btn-navy btn-sm" id="headerLoginBtn">Login</a>
+        <a href="register.html" class="btn btn-primary btn-sm" id="headerCtaBtn">Enroll Now</a>
+        <!-- Hamburger Button for Mobile, Tablet, iPad (<= 1366px) -->
+        <button class="menu-toggle" id="menuToggle" aria-label="Open mobile navigation menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile / Tablet / iPad Drawer Navigation (With Theme & RTL inside) -->
+  <div class="mobile-nav-backdrop" id="navBackdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile Navigation Menu">
+    <div class="drawer-header">
+      <span class="brand-title">Apex Navigation</span>
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li>
+        <span class="mobile-nav-link active">Home Options</span>
+        <ul class="mobile-submenu">
+          <li><a href="index.html" class="mobile-sublink">Home 1 (Career Focused)</a></li>
+          <li><a href="home-2.html" class="mobile-sublink active">Home 2 (Technical Journey)</a></li>
+        </ul>
+      </li>
+      <li><a href="programs.html" class="mobile-nav-link">Training Programs</a></li>
+      <li><a href="instructors.html" class="mobile-nav-link">Certified Instructors</a></li>
+      <li><a href="about.html" class="mobile-nav-link">About Academy</a></li>
+      <li><a href="contact.html" class="mobile-nav-link">Contact & Campus</a></li>
+      <li><a href="dashboard.html" class="mobile-nav-link">Student Portal Dashboard</a></li>
+    </ul>
+
+    <!-- Preferences inside drawer for mobile/tablet views -->
+    <div class="drawer-preferences">
+      <span class="drawer-pref-title">Display Settings</span>
+      <div class="drawer-pref-group">
+        <button class="tool-btn theme-toggle-btn" type="button" aria-label="Toggle theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          <span>Theme Mode</span>
+        </button>
+        <button class="tool-btn dir-toggle-btn" type="button" aria-label="Toggle direction">LTR / RTL</button>
+      </div>
+    </div>
+
+    <div class="drawer-cta">
+      <a href="login.html" class="btn btn-navy btn-block">Student Login</a>
+      <a href="register.html" class="btn btn-primary btn-block">Enroll Today</a>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT: COMPLETELY DIFFERENT LAYOUT FROM HOME 1 -->
+  <main class="site-main" id="mainContentHome2">
+
+    <!-- SECTION 1: Full-Screen 100vh Split-Screen Technical Immersion Hero -->
+    <section class="content-section hero-home2" id="home2Section1" aria-labelledby="home2HeroTitle">
+      <div class="container">
+        <div class="hero-home2-split">
+          <div class="hero-home2-panel">
+            <span class="section-badge" style="background-color: rgba(242, 140, 40, 0.2); color: #F28C28; align-self: flex-start;">
+              The Practical Road To Commercial Licensure
+            </span>
+            <h1 id="home2HeroTitle">Real Cab Cockpit Training Built For Professional Drivers.</h1>
+            <p>
+              Experience our modular behind-the-wheel instruction format. From 110-point pre-trip inspection muscle memory to real interstate 10-speed shifting, our accredited master instructors prepare you for state certification and career longevity.
+            </p>
+
+            <!-- Interactive Training Checklist Badge Box -->
+            <div style="background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius-md); padding: 1.15rem; margin-bottom: 2rem;">
+              <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-accent); font-weight: 700; margin-bottom: 0.5rem;">
+                4-Phase Licensing Readiness Checklist:
+              </div>
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.65rem; font-size: 0.875rem; color: #E2E8F0;">
+                <div>&check; Phase 1: FMCSA ELDT Theory</div>
+                <div>&check; Phase 2: 110-Point Pre-Trip Range</div>
+                <div>&check; Phase 3: 4 Backing Maneuvers</div>
+                <div>&check; Phase 4: State Highway Driving</div>
+              </div>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+              <a href="register.html" class="btn btn-primary">Start Your Application</a>
+              <a href="#roadmapSection" class="btn btn-outline" style="border-color: #5282a6; color: #FFFFFF;">Explore 4-Stage Roadmap</a>
+            </div>
+          </div>
+
+          <div class="hero-home2-photo">
+            <img src="assets/images/cab-training.jpg" alt="Commercial truck instructor guiding student driver from cab passenger seat" width="900" height="600" loading="eager">
+            <div class="media-floating-badge" style="background: rgba(20, 43, 69, 0.9); border-color: rgba(255, 255, 255, 0.2); color: #FFFFFF;">
+              <div style="width: 10px; height: 10px; border-radius: 50%; background: #10B981; animation: pulse 2s infinite;"></div>
+              <div>
+                <strong style="display:block; font-size: 0.85rem; color: #FFFFFF;">Live Training Cab Active</strong>
+                <span style="font-size: 0.75rem; color: #94A3B8;">10-Speed Eaton Manual &bull; Cummins X15</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: 4-Stage Horizontal Roadmap & Milestones (Distinct Visual Process Track) -->
+    <section class="content-section" id="roadmapSection" aria-labelledby="roadmapTitle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Structured Progression</span>
+          <h2 class="section-title" id="roadmapTitle">Your 4-Stage Roadmap to Licensure</h2>
+          <p class="section-description">
+            A linear competency pipeline designed to take students from zero commercial vehicle experience to a certified Class A or B CDL holder.
+          </p>
+        </div>
+
+        <div class="timeline-track">
+          <!-- Step 1 -->
+          <div class="timeline-step-box">
+            <div class="step-number">01</div>
+            <span class="card-tag accent">Stage 1: Classroom Theory</span>
+            <h3>Commercial Permit (CLP) Prep</h3>
+            <p>
+              40 hours covering ELDT regulations, hours-of-service electronic logging devices (ELD), air brake systems, and combination vehicle physics.
+            </p>
+            <div class="timeline-deliverable" style="color: var(--color-secondary);">Deliverable: State CLP Permit Issued</div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="timeline-step-box">
+            <div class="step-number">02</div>
+            <span class="card-tag accent">Stage 2: Yard Inspection</span>
+            <h3>110-Point Pre-Trip Walkaround</h3>
+            <p>
+              Master engine component naming, slack adjusters, brake chambers, kingpin locking mechanism, and the critical in-cab applied air brake leakage test.
+            </p>
+            <div class="timeline-deliverable" style="color: var(--color-secondary);">Deliverable: Pre-Trip Yard Clearance</div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="timeline-step-box highlight">
+            <div class="step-number">03</div>
+            <span class="card-tag accent">Stage 3: Range Control</span>
+            <h3>Closed-Course Backing Control</h3>
+            <p>
+              60 hours of spatial awareness training: straight line, 90-degree alley docking, and sight-side/blind-side offset maneuvers between regulation cones.
+            </p>
+            <div class="timeline-deliverable" style="color: var(--color-accent);">Deliverable: Yard Maneuvers Signed Off</div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="timeline-step-box">
+            <div class="step-number">04</div>
+            <span class="card-tag accent">Stage 4: Road & DMV</span>
+            <h3>Interstate Highway Driving & Exam</h3>
+            <p>
+              60 hours of real-world public road driving covering gear downshifting, bridge height clearance, ramp merging, followed by the official DMV test.
+            </p>
+            <div class="timeline-deliverable" style="color: #10B981;">Deliverable: Official Commercial Driver's License</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Heavy Training Rig Fleet Specifications Matrix (Completely Unique to Home 2) -->
+    <section class="content-section bg-alt" id="rigSpecsSection" aria-labelledby="fleetMatrixTitle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Modern Equipment</span>
+          <h2 class="section-title" id="fleetMatrixTitle">Heavy Training Fleet Specifications</h2>
+          <p class="section-description">
+            Train on the same equipment top logistics fleets operate. We offer both classic 10-speed manual and modern automated transmissions with zero manual restrictions.
+          </p>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="spec-matrix-table">
+            <thead>
+              <tr>
+                <th>Training Vehicle Model</th>
+                <th>Powertrain & Engine</th>
+                <th>Transmission Type</th>
+                <th>Safety Systems</th>
+                <th>License Track</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Peterbilt 579 UltraLoft</strong></td>
+                <td>Cummins X15 &bull; 450 HP / 1,650 lb-ft</td>
+                <td>Eaton Fuller 10-Speed Manual (No E Restriction)</td>
+                <td>Bendix Wingman Radar &bull; Roll Stability</td>
+                <td><span class="badge-blue">Class A Tractor-Trailer</span></td>
+              </tr>
+              <tr>
+                <td><strong>Kenworth T680 Next Gen</strong></td>
+                <td>PACCAR MX-13 &bull; 455 HP</td>
+                <td>PACCAR 12-Speed Automated Transmission</td>
+                <td>Collision Mitigation &bull; Lane Departure Camera</td>
+                <td><span class="badge-blue">Class A Tractor-Trailer</span></td>
+              </tr>
+              <tr>
+                <td><strong>Freightliner M2 106</strong></td>
+                <td>Cummins B6.7 &bull; 300 HP</td>
+                <td>Allison 3000 Series Automatic</td>
+                <td>Full Air Brake System &bull; Backup Telemetry</td>
+                <td><span class="badge-purple">Class B Straight Truck</span></td>
+              </tr>
+              <tr>
+                <td><strong>53-Foot Wabash Dry Van</strong></td>
+                <td>Tandem Sliding Axles</td>
+                <td>Regulation DOT Underride Protection</td>
+                <td>Roll-up Door &bull; Standard ICC Bumper</td>
+                <td><span class="badge-green">Combination Rating</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: CDL Backing Maneuvers Technical Guide (Unique Diagram Cards) -->
+    <section class="content-section" id="maneuversGuideSection" aria-labelledby="maneuversGuideTitle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Skills Testing Standards</span>
+          <h2 class="section-title" id="maneuversGuideTitle">Master The 4 Core Backing Maneuvers</h2>
+          <p class="section-description">
+            Our private 10-acre paved facility allows students to practice all 4 state-mandated test maneuvers until muscle memory is perfected.
+          </p>
+        </div>
+
+        <div class="card-grid-2">
+          <!-- Maneuver 1 -->
+          <article class="feature-card">
+            <span class="card-tag accent">Maneuver 01</span>
+            <h3 class="card-title">Straight Line Backing (100 Feet)</h3>
+            <p class="card-desc">
+              Back a 53-foot combination tractor-trailer straight through a 12-foot wide boundary lane without touching boundaries or excessive pull-ups.
+            </p>
+            <ul class="card-meta-list">
+              <li class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Requires precise subtle steering adjustments and dual mirror reference</span>
+              </li>
+              <li class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Trained to completion in Week 2 of yard sessions</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Maneuver 2 -->
+          <article class="feature-card">
+            <span class="card-tag accent">Maneuver 02</span>
+            <h3 class="card-title">Offset Backing (Sight-Side & Blind-Side)</h3>
+            <p class="card-desc">
+              Navigate the vehicle from one traffic lane into an adjacent parallel lane located to either the left or right, maintaining trailer alignment.
+            </p>
+            <ul class="card-meta-list">
+              <li class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Teaches pivotal turning angles and visual reference points</span>
+              </li>
+              <li class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Includes get-out-and-look (GOAL) safety protocol practice</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Maneuver 3 -->
+          <article class="feature-card">
+            <span class="card-tag accent">Maneuver 03</span>
+            <h3 class="card-title">90-Degree Alley Docking</h3>
+            <p class="card-desc">
+              Back the tractor-trailer into a perpendicular loading dock bay at a sharp 90-degree angle simulating real distribution center facilities.
+            </p>
+            <ul class="card-meta-list">
+              <li class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>The most challenging maneuver on the official state CDL examination</span>
+              </li>
+              <li class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Dedicated one-on-one coaching in 6 private alley dock bays</span>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Maneuver 4 -->
+          <article class="feature-card">
+            <span class="card-tag accent">Maneuver 04</span>
+            <h3 class="card-title">Parallel Parking (Conventional & Sight-Side)</h3>
+            <p class="card-desc">
+              Park a 70-foot overall combination rig alongside a simulated urban curb between front and rear boundary markers within 3 minutes.
+            </p>
+            <ul class="card-meta-list">
+              <li class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Simulates city delivery parking and designated rest stop stalls</span>
+              </li>
+              <li class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Full tire clearance and rear bumper alignment validation</span>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: Tuition Financing, GI Bill® & Employer Reimbursement (Distinct from Home 1) -->
+    <section class="content-section bg-alt" id="financingSection" aria-labelledby="financingTitle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">Zero Out-Of-Pocket Options</span>
+          <h2 class="section-title" id="financingTitle">Tuition Assistance & 100% Employer Reimbursement</h2>
+          <p class="section-description">
+            Multiple funding solutions ensure you never have to let upfront costs delay your commercial driving career.
+          </p>
+        </div>
+
+        <div class="card-grid-2">
+          <!-- Funding Option 1 -->
+          <article class="feature-card">
+            <span class="card-tag accent">Employer Sponsored</span>
+            <h3 class="card-title">Carrier Tuition Reimbursement Programs</h3>
+            <p class="card-desc">
+              Partner carriers pay off your training tuition in monthly additions to your regular paycheck, effectively providing your CDL education at $0 net cost.
+            </p>
+            <ul class="card-meta-list">
+              <li class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Available with major national logistics carriers upon hire</span>
+              </li>
+              <li class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Receive up to $7,500 total tuition payback</span>
+              </li>
+            </ul>
+            <div class="card-footer-action">
+              <a href="register.html" class="btn btn-primary btn-block">Apply for Carrier Reimbursement</a>
+            </div>
+          </article>
+
+          <!-- Funding Option 2 -->
+          <article class="feature-card">
+            <span class="card-tag">Grants & Veterans</span>
+            <h3 class="card-title">WIOA Grants & VA GI Bill&reg; Education Benefits</h3>
+            <p class="card-desc">
+              Military veterans can use Post-9/11 GI Bill&reg; benefits for 100% covered tuition, books, and monthly housing allowance (MHA) during full-time training.
+            </p>
+            <ul class="card-meta-list">
+              <li class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>State workforce development (WIOA) grants for displaced workers</span>
+              </li>
+              <li class="card-meta-item">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Flexible low-interest weekly installment options</span>
+              </li>
+            </ul>
+            <div class="card-footer-action">
+              <a href="contact.html" class="btn btn-navy btn-block">Inquire With VA Counselor</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer (Rich 4-Column Layout, Compact Spacing, Contact Info & Socials) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid-4">
+        <!-- Col 1: Brand Info & Accreditation -->
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom: 0.85rem;">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+            </div>
+            <div class="brand-text">
+              <span class="brand-title" style="color: #FFFFFF;">APEX CDL ACADEMY</span>
+              <span class="brand-subtitle">Commercial Driver Training</span>
+            </div>
+          </div>
+          <p style="color: #94A3B8; font-size: 0.875rem; line-height: 1.55; margin-bottom: 0.85rem;">
+            FMCSA-registered Entry-Level Driver Training (ELDT) institution equipping drivers with professional Class A & B certifications, modern tractor-trailer skills, and direct carrier placement.
+          </p>
+          <div style="font-size: 0.8rem; color: #CBD5E1; display: inline-flex; align-items: center; gap: 0.45rem; background: rgba(255,255,255,0.06); padding: 0.35rem 0.75rem; border-radius: var(--radius-sm); border: 1px solid rgba(255,255,255,0.1);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F28C28" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>FMCSA Registry #TR-94281</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Training Tracks -->
+        <div class="footer-col">
+          <h3>Training Programs</h3>
+          <ul class="footer-links">
+            <li><a href="programs.html">&bull; Class A Tractor-Trailer Track</a></li>
+            <li><a href="programs.html">&bull; Class B Straight Truck Track</a></li>
+            <li><a href="programs.html">&bull; Tanker & HazMat Endorsements</a></li>
+            <li><a href="programs.html">&bull; 40-Hour Skills Refresher</a></li>
+            <li><a href="programs.html">&bull; 110-Point Pre-Trip Intensive</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Student & Career Links -->
+        <div class="footer-col">
+          <h3>Quick Links & Resources</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">&bull; Home 1 (Career Focus)</a></li>
+            <li><a href="dashboard.html">&bull; Trainee Portal Dashboard</a></li>
+            <li><a href="instructors.html">&bull; Certified DOT Instructors</a></li>
+            <li><a href="about.html">&bull; Campus & Fleet Facility</a></li>
+            <li><a href="register.html">&bull; Online Seat Enrollment</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Campus Contact Info & Social Icons -->
+        <div class="footer-col">
+          <h3>Campus & Contacts</h3>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>1045 Logistics Express Blvd, Fort Worth, TX 76177</span>
+            </li>
+            <li class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+              <span>(800) 555-APEX &bull; (800) 555-2739</span>
+            </li>
+            <li class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span>admissions@apexcdlacademy.com</span>
+            </li>
+            <li class="footer-contact-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>Yard Open: Mon-Sat 6:30 AM - 7:30 PM</span>
+            </li>
+          </ul>
+
+          <!-- Social Icons -->
+          <div class="footer-social-links" aria-label="Social Media Links">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#FFFFFF"></polygon></svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="X (formerly Twitter)">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Apex CDL Academy. All rights reserved. Registered Commercial Driver Training Facility.</div>
+        <div>FMCSA Registry #TR-94281 &bull; Certified ELDT School &bull; Equal Opportunity Training Partner</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Arrow Button -->
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Scroll back to top" title="Scroll back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

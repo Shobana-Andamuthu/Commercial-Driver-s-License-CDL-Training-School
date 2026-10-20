@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apex CDL Academy | Student & Faculty Portal Login</title>
+  <meta name="description" content="Sign in to your Apex CDL Academy student portal to access your behind-the-wheel hours, practice schedules, and exam updates.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="auth-page-body">
+
+  <!-- Preloader Screen -->
+  <div id="apexPreloader" class="apex-preloader" aria-hidden="true">
+    <div class="preloader-content">
+      <div class="preloader-truck-box">
+        <svg class="preloader-truck-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="3" width="15" height="13"></rect>
+          <polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon>
+          <circle cx="5.5" cy="18.5" r="2.5"></circle>
+          <circle cx="18.5" cy="18.5" r="2.5"></circle>
+        </svg>
+      </div>
+      <div class="preloader-title">APEX CDL ACADEMY</div>
+      <div class="preloader-track">
+        <div class="preloader-bar"></div>
+      </div>
+      <div class="preloader-subtext">Loading Student Portal...</div>
+    </div>
+  </div>
+
+  <!-- Minimal Auth Header: Strictly Logo, RTL button, and Theme mode button only -->
+  <header class="site-header auth-header">
+    <div class="container auth-header-bar">
+      <a href="index.html" class="brand-logo" id="brandLogoLogin">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="3" width="15" height="13"></rect>
+            <polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon>
+            <circle cx="5.5" cy="18.5" r="2.5"></circle>
+            <circle cx="18.5" cy="18.5" r="2.5"></circle>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">APEX CDL</span>
+          <span class="brand-subtitle">Commercial Driving School</span>
+        </div>
+      </a>
+
+      <!-- Header Action Controls: Logo, RTL, and Theme Mode buttons ONLY -->
+      <div class="auth-header-actions">
+        <button class="tool-btn theme-toggle-btn" type="button" aria-label="Toggle theme">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+        <button class="tool-btn dir-toggle-btn" type="button" aria-label="Toggle direction">LTR</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Compact Clean Authentication Layout -->
+  <main class="site-main auth-wrapper" id="mainContentLogin">
+    <div class="auth-card">
+      <div class="auth-header">
+        <span class="section-badge">Student Portal</span>
+        <h1>Sign In</h1>
+        <p>Enter your student or instructor credentials to access your dashboard.</p>
+      </div>
+
+      <div class="form-alert-success" role="status" aria-live="polite">
+        <strong>Demo Authentication Success:</strong> Redirecting to your student dashboard... (Demo mode)
+      </div>
+
+      <form data-validate="true" novalidate id="loginForm" action="dashboard.html">
+        <div class="form-group">
+          <label for="loginEmail" class="form-label">Email or Student ID <span style="color: #EF4444;">*</span></label>
+          <input type="email" id="loginEmail" class="form-control" placeholder="student@apexcdlacademy.com" required value="student@apexcdlacademy.com">
+          <div class="form-error-msg">Please enter a valid student email address.</div>
+        </div>
+
+        <div class="form-group">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.4rem;">
+            <label for="loginPassword" class="form-label" style="margin-bottom: 0;">Password <span style="color: #EF4444;">*</span></label>
+            <a href="#" onclick="alert('Password reset link sent to demo registered email.'); return false;" style="font-size: 0.8rem; color: var(--color-secondary);">Forgot Password?</a>
+          </div>
+          <div class="input-with-toggle">
+            <input type="password" id="loginPassword" class="form-control" placeholder="••••••••" required value="Driver2026!">
+            <button type="button" class="pw-toggle-btn" aria-label="Toggle password visibility">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+            </button>
+          </div>
+          <div class="form-error-msg">Please enter your portal password.</div>
+        </div>
+
+        <div class="form-group" style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem;">
+          <input type="checkbox" id="rememberMe" style="accent-color: var(--color-accent); width: 16px; height: 16px;">
+          <label for="rememberMe" style="font-size: 0.875rem; color: var(--text-muted); cursor: pointer;">Remember this device</label>
+        </div>
+
+        <button type="submit" class="btn btn-navy btn-block" style="margin-top: 1rem;" id="btnLoginSubmit">
+          Access Student Dashboard
+        </button>
+      </form>
+
+      <div class="auth-footer" style="margin-top: 1.5rem; text-align: center; font-size: 0.9rem; color: var(--text-muted);">
+        New student looking to enroll?
+        <a href="register.html" style="font-weight: 700; color: var(--color-accent);">Create An Account / Enroll</a>
+      </div>
+      <div style="text-align: center; margin-top: 1rem; font-size: 0.85rem;">
+        <a href="index.html" style="color: var(--text-muted);">&larr; Back to Home</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
