@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initDashboardMobileDrawer();
   initDropdownDismiss();
   initBackToTop();
+  initFaqAccordion();
 });
 
 /* --------------------------------------------------------------------------
@@ -478,6 +479,47 @@ function initPreloader() {
     });
     setTimeout(dismiss, 700);
   }
+}
+
+/* --------------------------------------------------------------------------
+ * Contact Page Interactive FAQ Accordion (One-by-One Dropdown)
+ * -------------------------------------------------------------------------- */
+function initFaqAccordion() {
+  const faqItems = document.querySelectorAll('.faq-accordion-item');
+  if (!faqItems.length) return;
+
+  faqItems.forEach((item, index) => {
+    const btn = item.querySelector('.faq-accordion-btn');
+    if (!btn) return;
+
+    // Open first item by default for demonstration
+    if (index === 0) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+
+    btn.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+
+      // Close all other items (strictly one-by-one dropdown)
+      faqItems.forEach(other => {
+        if (other !== item) {
+          other.classList.remove('open');
+          const otherBtn = other.querySelector('.faq-accordion-btn');
+          if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Toggle current item
+      if (isOpen) {
+        item.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 }
 
 
