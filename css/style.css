@@ -3641,3 +3641,1231 @@ body, html {
   100% { left: 100%; }
 }
 
+/* ==========================================================================
+   Fleet Training Showcase - 4 Cards in 1 Row (Responsive & Uniform)
+   ========================================================================== */
+.fleet-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+@media (max-width: 1023px) {
+  .fleet-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .fleet-grid-4 {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.fleet-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+  height: 100%;
+}
+
+.fleet-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-accent);
+}
+
+.fleet-card-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--bg-alt);
+}
+
+.fleet-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.fleet-card:hover .fleet-card-media img {
+  transform: scale(1.05);
+}
+
+.fleet-badge-floating {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: rgba(20, 43, 69, 0.9);
+  backdrop-filter: blur(4px);
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[dir="rtl"] .fleet-badge-floating {
+  left: auto;
+  right: 0.75rem;
+}
+
+.fleet-card-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.fleet-card-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+  margin-bottom: 0.4rem;
+  line-height: 1.2;
+}
+
+.fleet-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.35;
+  margin-bottom: 0.5rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.85rem;
+}
+
+.fleet-card-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 3.825rem;
+}
+
+.fleet-card-specs {
+  list-style: none;
+  padding: 0.75rem 0;
+  margin: 0 0 1.15rem 0;
+  border-top: 1px dashed var(--border-color);
+  border-bottom: 1px dashed var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.fleet-card-spec-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  line-height: 1.3;
+}
+
+.fleet-spec-label {
+  color: var(--text-muted);
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.fleet-spec-label svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+.fleet-spec-val {
+  color: var(--text-main);
+  font-weight: 600;
+  text-align: end;
+}
+
+.fleet-card-action {
+  margin-top: auto;
+  padding-top: 0.25rem;
+}
+
+.fleet-card-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 0.65rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-alt);
+  color: var(--color-primary);
+  border: 1px solid var(--border-color);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.fleet-card:hover .fleet-card-btn {
+  background-color: var(--color-primary);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+}
+
+[data-theme="dark"] .fleet-card-btn {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #E2E8F0;
+  border-color: var(--border-color);
+}
+
+[data-theme="dark"] .fleet-card:hover .fleet-card-btn {
+  background-color: var(--color-accent);
+  color: #FFFFFF;
+  border-color: var(--color-accent);
+}
+
+/* ==========================================================================
+   Home 2 - 4-Stage Alternating Roadmap Journey (Images + Zigzag Pathway)
+   ========================================================================== */
+.roadmap-stepper-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.15rem clamp(1rem, 2.5vw, 2.25rem);
+  margin-bottom: clamp(2rem, 4vw, 3.25rem);
+  box-shadow: var(--shadow-sm);
+  overflow-x: auto;
+  gap: 0.75rem;
+}
+
+.stepper-step {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.stepper-step-num {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--color-accent-subtle);
+  color: var(--color-accent);
+  font-weight: 800;
+  font-family: var(--font-heading);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  border: 2px solid var(--color-accent);
+}
+
+.stepper-step-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.stepper-step-text strong {
+  font-size: 0.885rem;
+  color: var(--text-main);
+  line-height: 1.25;
+}
+
+.stepper-step-text span {
+  font-size: 0.775rem;
+  color: var(--text-muted);
+}
+
+.stepper-divider {
+  flex: 1 1 20px;
+  height: 2px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--color-accent) 0,
+    var(--color-accent) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  min-width: 20px;
+}
+
+.roadmap-timeline-wrapper {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Central vertical dashed highway road line on desktop */
+.roadmap-timeline-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50px;
+  bottom: 50px;
+  left: 50%;
+  width: 4px;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--color-accent) 0,
+    var(--color-accent) 14px,
+    transparent 14px,
+    transparent 24px
+  );
+  transform: translateX(-50%);
+  z-index: 1;
+  opacity: 0.85;
+}
+
+[dir="rtl"] .roadmap-timeline-wrapper::before {
+  left: 50%;
+  right: auto;
+}
+
+.roadmap-stage-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+  z-index: 2;
+}
+
+.roadmap-stage-item:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 992px) {
+  .roadmap-stage-item:nth-child(even) .roadmap-stage-card {
+    order: -1;
+  }
+}
+
+/* Center node pin */
+.roadmap-stage-pin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border: 4px solid var(--bg-main);
+  box-shadow: 0 0 0 3px var(--color-accent), var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.15rem;
+  z-index: 3;
+  transition: transform var(--transition-normal);
+}
+
+.roadmap-stage-item:hover .roadmap-stage-pin {
+  transform: translate(-50%, -50%) scale(1.12);
+}
+
+[data-theme="dark"] .roadmap-stage-pin {
+  border-color: var(--bg-main);
+  background: var(--color-accent);
+  color: #142B45;
+  box-shadow: 0 0 0 3px rgba(242, 140, 40, 0.5), var(--shadow-md);
+}
+
+.roadmap-stage-media {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  aspect-ratio: 4 / 3;
+  background-color: var(--bg-alt);
+}
+
+.roadmap-stage-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.roadmap-stage-item:hover .roadmap-stage-media img {
+  transform: scale(1.06);
+}
+
+.roadmap-media-badge {
+  position: absolute;
+  bottom: 0.85rem;
+  left: 0.85rem;
+  background: rgba(20, 43, 69, 0.92);
+  backdrop-filter: blur(6px);
+  color: #FFFFFF;
+  font-size: 0.775rem;
+  font-weight: 700;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: var(--shadow-sm);
+}
+
+[dir="rtl"] .roadmap-media-badge {
+  left: auto;
+  right: 0.85rem;
+}
+
+.roadmap-stage-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 2.75vw, 2.25rem);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.roadmap-stage-item:hover .roadmap-stage-card {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-accent);
+}
+
+.roadmap-phase-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-accent);
+  background-color: var(--color-accent-subtle);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.75rem;
+  align-self: flex-start;
+}
+
+.roadmap-stage-card h3 {
+  font-size: clamp(1.2rem, 1.8vw, 1.45rem);
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.roadmap-stage-card p {
+  font-size: 0.925rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.15rem;
+}
+
+.roadmap-skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.25rem;
+}
+
+.roadmap-skill-pill {
+  font-size: 0.775rem;
+  font-weight: 600;
+  color: var(--text-main);
+  background-color: var(--bg-alt);
+  border: 1px solid var(--border-color);
+  padding: 0.3rem 0.65rem;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.roadmap-deliverable-box {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.15rem;
+  background-color: var(--bg-alt);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+[dir="rtl"] .roadmap-deliverable-box {
+  border-left: none;
+  border-right: 4px solid var(--color-accent);
+}
+
+.roadmap-deliverable-box svg {
+  color: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* Responsive Breakpoints for Roadmap Journey */
+@media (max-width: 991px) {
+  .roadmap-timeline-wrapper::before {
+    left: 24px;
+    transform: none;
+  }
+
+  [dir="rtl"] .roadmap-timeline-wrapper::before {
+    left: auto;
+    right: 24px;
+  }
+
+  .roadmap-stage-item {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding-left: 56px;
+    margin-bottom: 2.75rem;
+  }
+
+  [dir="rtl"] .roadmap-stage-item {
+    padding-left: 0;
+    padding-right: 56px;
+  }
+
+  .roadmap-stage-pin {
+    left: 24px;
+    top: 24px;
+    transform: translate(-50%, 0);
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+
+  .roadmap-stage-item:hover .roadmap-stage-pin {
+    transform: translate(-50%, 0) scale(1.1);
+  }
+
+  [dir="rtl"] .roadmap-stage-pin {
+    left: auto;
+    right: 24px;
+    transform: translate(50%, 0);
+  }
+
+  [dir="rtl"] .roadmap-stage-item:hover .roadmap-stage-pin {
+    transform: translate(50%, 0) scale(1.1);
+  }
+
+  /* Keep media on top for all cards on mobile/tablet */
+  .roadmap-stage-item:nth-child(even) .roadmap-stage-card {
+    order: 2;
+  }
+  .roadmap-stage-item:nth-child(even) .roadmap-stage-media {
+    order: 1;
+  }
+}
+
+@media (max-width: 540px) {
+  .roadmap-timeline-wrapper::before {
+    display: none;
+  }
+
+  .roadmap-stage-item {
+    padding-left: 0;
+  }
+
+  [dir="rtl"] .roadmap-stage-item {
+    padding-right: 0;
+  }
+
+  .roadmap-stage-pin {
+    position: static;
+    transform: none !important;
+    margin-bottom: 0.75rem;
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* ==========================================================================
+   Programs - Carrier Sponsorship & Tuition Funding Showcase
+   Asymmetric Bento & Split Feature Layout
+   ========================================================================== */
+.sponsorship-showcase-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 1.75rem;
+  align-items: stretch;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 991px) {
+  .sponsorship-showcase-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Feature Spotlight Hero Card (Left) */
+.sponsorship-hero-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.sponsorship-hero-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.sponsorship-hero-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background-color: var(--bg-alt);
+}
+
+.sponsorship-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.sponsorship-hero-card:hover .sponsorship-hero-media img {
+  transform: scale(1.05);
+}
+
+.sponsorship-media-pill {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(20, 43, 69, 0.92);
+  backdrop-filter: blur(6px);
+  color: #FFFFFF;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.775rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+[dir="rtl"] .sponsorship-media-pill {
+  left: auto;
+  right: 1rem;
+}
+
+.sponsorship-media-badge-bottom {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  background: rgba(16, 185, 129, 0.95);
+  backdrop-filter: blur(6px);
+  color: #FFFFFF;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.825rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+[dir="rtl"] .sponsorship-media-badge-bottom {
+  left: auto;
+  right: 1rem;
+}
+
+.sponsorship-hero-body {
+  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.sponsorship-hero-body h3 {
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 0.65rem;
+  line-height: 1.25;
+}
+
+.sponsorship-hero-body p {
+  font-size: 0.925rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.sponsorship-partners-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem 1rem;
+  background-color: var(--bg-alt);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+.sponsorship-partner-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sponsorship-partner-tag {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  background-color: var(--bg-card);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .sponsorship-partner-tag {
+  color: #FFFFFF;
+}
+
+.sponsorship-hero-actions {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* Stacked Funding Track Cards (Right) */
+.sponsorship-stack-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  height: 100%;
+}
+
+.funding-track-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.35rem 1.45rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.funding-track-card:hover {
+  transform: translateX(4px);
+  border-color: var(--color-accent);
+  box-shadow: var(--shadow-md);
+}
+
+[dir="rtl"] .funding-track-card:hover {
+  transform: translateX(-4px);
+}
+
+.funding-track-card.highlight {
+  border-color: var(--color-accent);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(242, 140, 40, 0.04) 100%);
+}
+
+.funding-track-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.funding-track-badge {
+  font-size: 0.725rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+}
+
+.funding-track-badge.orange {
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent);
+}
+
+.funding-track-badge.green {
+  background-color: rgba(16, 185, 129, 0.12);
+  color: #10B981;
+}
+
+.funding-track-badge.blue {
+  background-color: rgba(37, 99, 235, 0.12);
+  color: #2563EB;
+}
+
+.funding-track-amount {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+}
+
+[data-theme="dark"] .funding-track-amount {
+  color: #FFFFFF;
+}
+
+.funding-track-card h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.35rem;
+}
+
+.funding-track-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+.funding-track-perks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.775rem;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.funding-track-perks span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.funding-track-perks span svg {
+  color: var(--color-accent);
+}
+
+/* Bottom Advisor Counseling Callout Bar */
+.sponsorship-advisor-bar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 768px) {
+  .sponsorship-advisor-bar {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1rem;
+  }
+  .sponsorship-advisor-thumb {
+    margin: 0 auto;
+  }
+}
+
+.sponsorship-advisor-thumb {
+  width: 76px;
+  height: 76px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 2px solid var(--border-color);
+  flex-shrink: 0;
+}
+
+.sponsorship-advisor-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sponsorship-advisor-text strong {
+  display: block;
+  font-size: 1.05rem;
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
+}
+
+.sponsorship-advisor-text p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   About Page - The Apex Independence Guarantee & Proving Ground Showcase
+   Panoramic Aerial + 3-Dimensional Guarantee Cards + Alum Spotlight
+   ========================================================================== */
+.about-panoramic-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 21 / 9;
+  min-height: 280px;
+  max-height: 440px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  margin-bottom: 2rem;
+  background-color: var(--bg-alt);
+}
+
+@media (max-width: 768px) {
+  .about-panoramic-card {
+    aspect-ratio: 16 / 10;
+    min-height: 220px;
+  }
+}
+
+.about-panoramic-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.about-panoramic-card:hover img {
+  transform: scale(1.03);
+}
+
+.about-pano-overlay-top {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  right: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.about-pano-tag {
+  background: rgba(20, 43, 69, 0.92);
+  backdrop-filter: blur(6px);
+  color: #FFFFFF;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.775rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  pointer-events: auto;
+}
+
+.about-pano-tag.accent {
+  background: rgba(242, 140, 40, 0.95);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.about-pano-overlay-bottom {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  background: rgba(20, 43, 69, 0.92);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  .about-pano-overlay-bottom {
+    display: none;
+  }
+}
+
+.about-pano-stat-item {
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 0 0.5rem;
+}
+
+.about-pano-stat-item:last-child {
+  border-right: none;
+}
+
+[dir="rtl"] .about-pano-stat-item {
+  border-right: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+[dir="rtl"] .about-pano-stat-item:last-child {
+  border-left: none;
+}
+
+.about-pano-stat-num {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--color-accent);
+  line-height: 1.1;
+  display: block;
+}
+
+.about-pano-stat-label {
+  font-size: 0.725rem;
+  color: #CBD5E1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+/* 3-Column Guarantees Grid */
+.about-guarantees-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 991px) {
+  .about-guarantees-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+.about-guarantee-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.4rem, 2vw, 1.85rem);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-guarantee-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-accent);
+}
+
+.about-guarantee-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--color-secondary);
+}
+
+.about-guarantee-card.highlight::before {
+  background: var(--color-accent);
+}
+
+.about-guarantee-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.about-guarantee-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-guarantee-badge {
+  font-size: 0.725rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--bg-alt);
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+}
+
+.about-guarantee-card.highlight .about-guarantee-badge {
+  background-color: var(--color-accent-subtle);
+  color: var(--color-accent);
+  border-color: rgba(242, 140, 40, 0.3);
+}
+
+.about-guarantee-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.65rem;
+  line-height: 1.3;
+}
+
+.about-guarantee-card p {
+  font-size: 0.885rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.about-guarantee-checklist {
+  list-style: none;
+  padding: 0;
+  margin: auto 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-top: 1px dashed var(--border-color);
+  padding-top: 1rem;
+}
+
+.about-guarantee-checklist li {
+  font-size: 0.825rem;
+  color: var(--text-main);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.about-guarantee-checklist li svg {
+  color: #10B981;
+  flex-shrink: 0;
+}
+
+/* Bottom Alum Success Spotlight Bar */
+.about-alum-bar {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  align-items: center;
+  gap: 1.75rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 860px) {
+  .about-alum-bar {
+    grid-template-columns: 1fr;
+  }
+}
+
+.about-alum-media {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  overflow: hidden;
+  background-color: var(--bg-alt);
+}
+
+.about-alum-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-alum-content {
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about-alum-content blockquote {
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  color: var(--text-main);
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 0.85rem;
+}
+
+.about-alum-author {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.about-alum-author-info strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.about-alum-author-info span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+
+
+
+

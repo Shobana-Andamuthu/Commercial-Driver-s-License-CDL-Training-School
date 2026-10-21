@@ -181,7 +181,7 @@
       </div>
     </section>
 
-    <!-- SECTION 2: 4-Stage Horizontal Roadmap & Milestones (Distinct Visual Process Track) -->
+    <!-- SECTION 2: 4-Stage Alternating Roadmap Journey (Images + Zigzag Pathway) -->
     <section class="content-section" id="roadmapSection" aria-labelledby="roadmapTitle">
       <div class="container">
         <div class="section-header">
@@ -192,50 +192,154 @@
           </p>
         </div>
 
-        <div class="timeline-track">
-          <!-- Step 1 -->
-          <div class="timeline-step-box">
-            <div class="step-number">01</div>
-            <span class="card-tag accent">Stage 1: Classroom Theory</span>
-            <h3>Commercial Permit (CLP) Prep</h3>
-            <p>
-              40 hours covering ELDT regulations, hours-of-service electronic logging devices (ELD), air brake systems, and combination vehicle physics.
-            </p>
-            <div class="timeline-deliverable" style="color: var(--color-secondary);">Deliverable: State CLP Permit Issued</div>
+        <!-- Linear Stepper Bar Overview -->
+        <div class="roadmap-stepper-bar" aria-label="Roadmap stages summary">
+          <div class="stepper-step">
+            <div class="stepper-step-num">01</div>
+            <div class="stepper-step-text">
+              <strong>Theory CLP</strong>
+              <span>40 Classroom Hrs</span>
+            </div>
           </div>
+          <div class="stepper-divider" aria-hidden="true"></div>
+          <div class="stepper-step">
+            <div class="stepper-step-num">02</div>
+            <div class="stepper-step-text">
+              <strong>Pre-Trip Lab</strong>
+              <span>110 Walkaround Points</span>
+            </div>
+          </div>
+          <div class="stepper-divider" aria-hidden="true"></div>
+          <div class="stepper-step">
+            <div class="stepper-step-num">03</div>
+            <div class="stepper-step-text">
+              <strong>Range Control</strong>
+              <span>60 Yard Maneuver Hrs</span>
+            </div>
+          </div>
+          <div class="stepper-divider" aria-hidden="true"></div>
+          <div class="stepper-step">
+            <div class="stepper-step-num">04</div>
+            <div class="stepper-step-text">
+              <strong>DMV Exam</strong>
+              <span>Official CDL Issued</span>
+            </div>
+          </div>
+        </div>
 
-          <!-- Step 2 -->
-          <div class="timeline-step-box">
-            <div class="step-number">02</div>
-            <span class="card-tag accent">Stage 2: Yard Inspection</span>
-            <h3>110-Point Pre-Trip Walkaround</h3>
-            <p>
-              Master engine component naming, slack adjusters, brake chambers, kingpin locking mechanism, and the critical in-cab applied air brake leakage test.
-            </p>
-            <div class="timeline-deliverable" style="color: var(--color-secondary);">Deliverable: Pre-Trip Yard Clearance</div>
-          </div>
+        <!-- Alternating Zigzag Timeline Journey with Images -->
+        <div class="roadmap-timeline-wrapper">
+          <!-- Stage 1 -->
+          <article class="roadmap-stage-item" id="roadmapStage1">
+            <div class="roadmap-stage-pin" aria-hidden="true">01</div>
+            <div class="roadmap-stage-media">
+              <img src="assets/images/stage1-classroom-theory.jpg" alt="FMCSA ELDT CDL classroom theory instruction" width="700" height="525" loading="lazy">
+              <span class="roadmap-media-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <span>40 Hours Classroom</span>
+              </span>
+            </div>
+            <div class="roadmap-stage-card">
+              <span class="roadmap-phase-tag">Stage 01 &bull; Classroom Theory</span>
+              <h3>Commercial Learner's Permit (CLP) Prep</h3>
+              <p>
+                In-depth instruction covering FMCSA ELDT federal regulations, hours-of-service electronic logging devices (ELD), dual air brake systems, and combination vehicle aerodynamics.
+              </p>
+              <div class="roadmap-skills-tags">
+                <span class="roadmap-skill-pill">&check; FMCSA ELDT Registered</span>
+                <span class="roadmap-skill-pill">&check; Air Brake Theory</span>
+                <span class="roadmap-skill-pill">&check; Electronic Logbooks</span>
+              </div>
+              <div class="roadmap-deliverable-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Milestone: State CLP Commercial Permit Issued</span>
+              </div>
+            </div>
+          </article>
 
-          <!-- Step 3 -->
-          <div class="timeline-step-box highlight">
-            <div class="step-number">03</div>
-            <span class="card-tag accent">Stage 3: Range Control</span>
-            <h3>Closed-Course Backing Control</h3>
-            <p>
-              60 hours of spatial awareness training: straight line, 90-degree alley docking, and sight-side/blind-side offset maneuvers between regulation cones.
-            </p>
-            <div class="timeline-deliverable" style="color: var(--color-accent);">Deliverable: Yard Maneuvers Signed Off</div>
-          </div>
+          <!-- Stage 2 -->
+          <article class="roadmap-stage-item" id="roadmapStage2">
+            <div class="roadmap-stage-pin" aria-hidden="true">02</div>
+            <div class="roadmap-stage-media">
+              <img src="assets/images/stage2-pretrip-inspection.jpg" alt="Student inspecting commercial truck engine during pre-trip inspection" width="700" height="525" loading="lazy">
+              <span class="roadmap-media-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                <span>110 Inspection Points</span>
+              </span>
+            </div>
+            <div class="roadmap-stage-card">
+              <span class="roadmap-phase-tag">Stage 02 &bull; Yard Mechanical Lab</span>
+              <h3>110-Point Pre-Trip Walkaround Inspection</h3>
+              <p>
+                Hands-on component mastery under the hood: identifying steering mechanisms, brake chambers, slack adjusters, fifth-wheel kingpin locking, and mandatory in-cab air brake leakage checks.
+              </p>
+              <div class="roadmap-skills-tags">
+                <span class="roadmap-skill-pill">&check; Engine Bay Walkaround</span>
+                <span class="roadmap-skill-pill">&check; Applied Air Leakage Test</span>
+                <span class="roadmap-skill-pill">&check; Fifth-Wheel Coupling</span>
+              </div>
+              <div class="roadmap-deliverable-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Milestone: Pre-Trip Inspection Yard Clearance</span>
+              </div>
+            </div>
+          </article>
 
-          <!-- Step 4 -->
-          <div class="timeline-step-box">
-            <div class="step-number">04</div>
-            <span class="card-tag accent">Stage 4: Road & DMV</span>
-            <h3>Interstate Highway Driving & Exam</h3>
-            <p>
-              60 hours of real-world public road driving covering gear downshifting, bridge height clearance, ramp merging, followed by the official DMV test.
-            </p>
-            <div class="timeline-deliverable" style="color: #10B981;">Deliverable: Official Commercial Driver's License</div>
-          </div>
+          <!-- Stage 3 -->
+          <article class="roadmap-stage-item" id="roadmapStage3">
+            <div class="roadmap-stage-pin" aria-hidden="true">03</div>
+            <div class="roadmap-stage-media">
+              <img src="assets/images/stage3-backing-control.jpg" alt="Commercial semi truck backing into 90-degree alley dock between cones" width="700" height="525" loading="lazy">
+              <span class="roadmap-media-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path></svg>
+                <span>60 Hours Behind Wheel</span>
+              </span>
+            </div>
+            <div class="roadmap-stage-card">
+              <span class="roadmap-phase-tag">Stage 03 &bull; Closed-Course Control</span>
+              <h3>Yard Maneuvers & Precision Backing Control</h3>
+              <p>
+                Extensive spatial awareness practice on our private proving grounds: 90-degree alley docks, straight-line reversing, and sight-side/blind-side offset lane maneuvers between regulation markers.
+              </p>
+              <div class="roadmap-skills-tags">
+                <span class="roadmap-skill-pill">&check; 90° Alley Docking</span>
+                <span class="roadmap-skill-pill">&check; Offset Backing</span>
+                <span class="roadmap-skill-pill">&check; Parallel Parking Stall</span>
+              </div>
+              <div class="roadmap-deliverable-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Milestone: Closed-Course Range Maneuvers Passed</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Stage 4 -->
+          <article class="roadmap-stage-item" id="roadmapStage4">
+            <div class="roadmap-stage-pin" aria-hidden="true">04</div>
+            <div class="roadmap-stage-media">
+              <img src="assets/images/stage4-highway-dmv.jpg" alt="Commercial semi truck driving on open interstate highway" width="700" height="525" loading="lazy">
+              <span class="roadmap-media-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                <span>DMV Test On-Site</span>
+              </span>
+            </div>
+            <div class="roadmap-stage-card">
+              <span class="roadmap-phase-tag">Stage 04 &bull; Road & Licensing</span>
+              <h3>Interstate Highway Driving & Official DMV Exam</h3>
+              <p>
+                Real-world highway operations mastering dual-clutch downshifting, uphill torque, interstate ramp merges, followed by testing in the exact truck you trained in for immediate license issuance.
+              </p>
+              <div class="roadmap-skills-tags">
+                <span class="roadmap-skill-pill">&check; Interstate Speed Merge</span>
+                <span class="roadmap-skill-pill">&check; Mountain Grade Shift</span>
+                <span class="roadmap-skill-pill">&check; On-Site DMV Road Exam</span>
+              </div>
+              <div class="roadmap-deliverable-box">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Milestone: Official Commercial Driver's License Issued</span>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
